@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pc-toast{
+    @apply border border-black bg-red-300 rounded-none text-black shadow 
+}
+
+.pc-body-toast{
+    @apply font-normal font-sans
+}
+
+.pc-progressbar-toast{
+    @apply bg-purple-400
+}

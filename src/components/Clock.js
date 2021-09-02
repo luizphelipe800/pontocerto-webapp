@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ClipLoader } from 'react-spinners'
+import ToastNotify from '../utils/ToastNotify'
 import Api from '../services/Api'
 
 const Clock = () => {
@@ -12,7 +13,7 @@ const Clock = () => {
             await Api.post('/pontos', { horario: `${time[0]}:${time[1]}` })
             setPontoBatido(true)
         }catch(error){
-            console.log(error.response.data)
+            ToastNotify(error.response.data, 'BOTTOM_RIGHT')
         }
     }
 

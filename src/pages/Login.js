@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { login } from '../services/Auth'
+import ToastNotify from '../utils/ToastNotify'
 import Api from '../services/Api'
 
 import { ClipLoader } from 'react-spinners'
@@ -18,10 +19,12 @@ const Login = () => {
             setLoading(true)
             setTimeout(() => history.replace('/home'), 3000)
         }catch(error){
-            console.log(error.response.data)
+            ToastNotify(error.response.data, 'TOP_CENTER')
             setLoading(false)
         }
     }
+
+    
 
     const handleOnChange = ev => {
         setCredentials(c => ({ ...c, [ev.target.name]: ev.target.value }) )
@@ -42,7 +45,7 @@ const Login = () => {
                         required 
                         onChange={handleOnChange}
                         value={credentials.email}
-                        className="font-light mb-3 border border-black text-center h-10 placeholder-black"
+                        className="font-light mb-3 border border-black text-center h-10 placeholder-black outline-none"
                     />
 
                     <input 
@@ -52,7 +55,7 @@ const Login = () => {
                         required
                         onChange={handleOnChange}
                         value={credentials.senha}
-                        className="font-light mb-5 border border-black text-center h-10 placeholder-black"
+                        className="font-light mb-5 border border-black text-center h-10 placeholder-black outline-none"
                     />
 
                     <button type="submit" className="border border-black h-10 shadow bg-green-400 hover:bg-green-500 flex justify-center items-center">
