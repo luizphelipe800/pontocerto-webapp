@@ -12,18 +12,19 @@ const Navbar = () => {
     }
 
     return (
-        <nav>
+        <nav className="flex flex-row justify-between items-center">
             <div>
-                <Link to="/">PontoCerto</Link>
+                <Link className="text-3xl" to="/">PontoCerto</Link>
             </div>
-            <div>
+            <div className="grid gap-3 grid-cols-3">
                 {
                     user.funcao === 1 &&
                     <>
-                    <Link to="/">Adicionar Funcionário</Link>
+                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow" to="/">Adicionar Funcionário</Link>
+                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow" to="/">Adicionar Funcionário</Link>
                     </>
                 }
-                <button onClick={handleOnLogout}>Sair</button>
+                <button onClick={handleOnLogout} className="font-extrabold">Sair</button>
             </div>
         </nav>
     )

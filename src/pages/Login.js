@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { login } from '../services/Auth'
 import Api from '../services/Api'
 
-import { PropagateLoader } from 'react-spinners'
+import { ClipLoader } from 'react-spinners'
 
 const Login = () => {
     const [ credentials, setCredentials ] = useState({ email: '', senha: '' })
@@ -32,7 +32,7 @@ const Login = () => {
             <div>
                 <h1 className="text-3xl">PontoCerto</h1>
             </div>
-            <div className="grid grid-cols-1 w-1/3 place-self-start justify-self-center p-3">
+            <div className="grid grid-cols-1 lg:w-1/3 sm:w-1/2 place-self-start justify-self-center p-3">
                 <h1 className="text-center text-4xl mb-5">Faça o Login</h1>
                 <form onSubmit={handleOnSubmit} className="flex flex-col">
                     <input 
@@ -42,7 +42,7 @@ const Login = () => {
                         required 
                         onChange={handleOnChange}
                         value={credentials.email}
-                        className="font-light mb-3 border border-black text-center h-10 bg-transparent placeholder-black"
+                        className="font-light mb-3 border border-black text-center h-10 placeholder-black"
                     />
 
                     <input 
@@ -52,11 +52,11 @@ const Login = () => {
                         required
                         onChange={handleOnChange}
                         value={credentials.senha}
-                        className="font-light mb-5 border border-black text-center h-10 bg-transparent placeholder-black"
+                        className="font-light mb-5 border border-black text-center h-10 placeholder-black"
                     />
 
                     <button type="submit" className="border border-black h-10 shadow bg-green-400 hover:bg-green-500 flex justify-center items-center">
-                        <PropagateLoader color="#ffffff" loading={loading} size={4} />
+                        <ClipLoader color="#ffffff" loading={loading} size={16} />
                         { !loading && 'Login' }
                     </button>
                     

@@ -32,7 +32,7 @@ const DateTime = () => {
 
     return (
         <div>
-            <h3>{`${date.dia} ${date.mes} ${date.ano} - ${time}`}</h3>
+            <h3 className="text-5xl">{`${date.dia} ${date.mes} ${date.ano} - ${time}`}</h3>
         </div>
     )
 }

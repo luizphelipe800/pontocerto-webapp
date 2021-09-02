@@ -5,11 +5,11 @@ import Clock from '../components/Clock'
 const Home = () => {
 
     return (
-        <>
+        <div className="bg-gray-100 h-screen p-6 font-light">
             <Navbar/>
             <Header/>
             <Clock/>
-        </>
+        </div>
     )
 }
 

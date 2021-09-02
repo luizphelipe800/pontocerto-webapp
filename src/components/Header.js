@@ -6,8 +6,8 @@ import DateTime from './DateTime'
 const Header = () => {
     const [user] = useState(() => getUser())
     return (
-        <header>
-            <h1>Bem Vindo {user.nome}, já bateu o ponto hoje?</h1>
+        <header className="py-6">
+            <h1 className="text-3xl mb-3">Bem Vindo {user.nome}, já bateu o ponto hoje?</h1>
             <DateTime/>
         </header>
     )
