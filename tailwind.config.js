@@ -5,6 +5,9 @@ module.exports = {
     extend: {},
     fontFamily: {
       sans: ['Roboto', 'sans']
+    },
+    boxShadow: {
+      DEFAULT: '4px 4px 0 0 rgb(0, 0, 0)'
     }
   },
   variants: {
