@@ -5,7 +5,6 @@ import DateTime from './DateTime'
 
 const Header = () => {
     const [user] = useState(() => getUser())
-    //const [currentDate] = useState(() => new Date().toLocaleDateString())
     return (
         <header>
             <h1>Bem Vindo {user.nome}, já bateu o ponto hoje?</h1>

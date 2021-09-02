@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
+import Clock from '../components/Clock'
 
 const Home = () => {
 
@@ -7,6 +8,7 @@ const Home = () => {
         <>
             <Navbar/>
             <Header/>
+            <Clock/>
         </>
     )
 }
