@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { login } from '../services/Auth'
 import ToastNotify from '../utils/ToastNotify'
 import Api from '../services/Api'
@@ -9,6 +9,7 @@ import { ClipLoader } from 'react-spinners'
 const Login = () => {
     const [ credentials, setCredentials ] = useState({ email: '', senha: '' })
     const [ loading, setLoading ] = useState(false)
+    const { funcao } = useParams()
     const history = useHistory()
 
     const handleOnSubmit = async ev => {
@@ -19,7 +20,7 @@ const Login = () => {
             setLoading(true)
             setTimeout(() => history.replace('/home'), 3000)
         }catch(error){
-            ToastNotify(error.response.data, 'TOP_CENTER')
+            ToastNotify(error.response.data, 'TOP_CENTER', 'error')
             setLoading(false)
         }
     }
@@ -47,7 +48,9 @@ const Login = () => {
                         value={credentials.email}
                         className="font-light mb-3 border border-black text-center h-10 placeholder-black outline-none"
                     />
-
+                    <>
+                    {
+                    funcao === '1' &&
                     <input 
                         type="password" 
                         name="senha" 
@@ -57,7 +60,8 @@ const Login = () => {
                         value={credentials.senha}
                         className="font-light mb-5 border border-black text-center h-10 placeholder-black outline-none"
                     />
-
+                    }
+                    </>
                     <button type="submit" className="border border-black h-10 shadow bg-green-400 hover:bg-green-500 flex justify-center items-center">
                         <ClipLoader color="#ffffff" loading={loading} size={16} />
                         { !loading && 'Login' }

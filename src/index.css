@@ -2,14 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-.pc-toast{
+.toast-error{
     @apply border border-black bg-red-300 rounded-none text-black shadow 
 }
 
-.pc-body-toast{
+.body-error{
     @apply font-normal font-sans
 }
 
-.pc-progressbar-toast{
+.progressbar-error{
     @apply bg-purple-400
+}
+
+.toast-success{
+    @apply border border-black bg-green-200 rounded-none text-black shadow 
+}
+
+.body-success{
+    @apply font-normal font-sans
+}
+
+.progressbar-success{
+    @apply bg-blue-400
+}
+
+.input-text{
+    @apply font-light mb-5 border border-black text-justify px-4 h-10 placeholder-black outline-none
+}
+
+.submit-button{
+    @apply border border-black h-10 shadow bg-green-400 hover:bg-green-500 flex justify-center items-center
 }

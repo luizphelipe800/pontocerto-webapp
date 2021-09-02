@@ -1,11 +1,11 @@
 import { toast } from "react-toastify"
 
-const ToastNotify = (message, position) =>{
+const ToastNotify = (message, position, status) =>{
     return toast.dark(message, {
         position: toast.POSITION[position],
-        className: 'pc-toast',
-        bodyClassName: 'pc-body-toast',
-        progressClassName: 'pc-progressbar-toast',
+        className: `toast-${status}`,
+        bodyClassName: `body-${status}`,
+        progressClassName: `progressbar-${status}`,
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,

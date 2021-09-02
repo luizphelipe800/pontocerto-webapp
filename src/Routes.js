@@ -9,6 +9,8 @@ import {
 
 import Login from './pages/Login'
 import Home from './pages/Home'
+import Main from './pages/Main';
+import AdicionarUsuario from './pages/AdicionarUsuario';
 
 const PublicRoutes = ({ children, ...rest }) => {
     return <Route
@@ -40,11 +42,18 @@ const Routes = () => (
     <BrowserRouter>
         <Switch>
             <PublicRoutes exact path='/'>
+                <Main/>
+            </PublicRoutes>
+            <PublicRoutes path='/login/:funcao'>
                 <Login/>
             </PublicRoutes>
 
             <PrivateRoutes path='/home'>
                 <Home/>
+            </PrivateRoutes>
+
+            <PrivateRoutes path='/usuario'>
+                <AdicionarUsuario/>
             </PrivateRoutes>
         </Switch>
     </BrowserRouter>

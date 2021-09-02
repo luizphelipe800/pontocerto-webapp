@@ -12,8 +12,9 @@ const Clock = () => {
             const time = new Date().toLocaleTimeString().split(':')
             await Api.post('/pontos', { horario: `${time[0]}:${time[1]}` })
             setPontoBatido(true)
+            ToastNotify('Ponto Batido!', 'BOTTOM_RIGHT', 'success')
         }catch(error){
-            ToastNotify(error.response.data, 'BOTTOM_RIGHT')
+            ToastNotify(error.response.data, 'BOTTOM_RIGHT', 'error')
         }
     }
 
