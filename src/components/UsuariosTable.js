@@ -1,10 +1,32 @@
+import Modal from 'react-modal'
+import Api from '../services/Api'
+import { useState } from 'react'
 import { BiEditAlt, BiUserMinus, BiSpreadsheet } from "react-icons/bi"
 import { Link } from 'react-router-dom'
+import ToastNotify from '../utils/ToastNotify'
 
 const cargos = ['Gestor', 'Funcionário']
 
-const UsuariosTable = ({ usuarios }) => {
+const UsuariosTable = ({ usuarios, handleOnReload }) => {
+	const [ userId, setUserId ] = useState(null)
+
+	const handleOnOpen = userId => setUserId(userId)
+	const handleOnClose = () => setUserId(null)
+
+	const handleOnRemove = async () => {
+		try{
+			await Api.delete(`/usuarios/${userId}`)
+			ToastNotify('Usuário Retirado da Equipe!', 'BOTTOM_RIGHT', 'success')
+			handleOnReload(true)
+			setUserId(null)
+		}catch(error){
+			ToastNotify(error.response.data, 'BOTTOM_RIGHT', 'error')
+			setUserId(null)
+		}
+	}
+
 	return (
+		<>
 		<div className="border border-black shadow bg-white">
 			<table className="divide-y divide-black w-full">
 				<thead className="">
@@ -29,7 +51,11 @@ const UsuariosTable = ({ usuarios }) => {
 									<Link className="submit-button font-light px-4 ml-3 text-xl" title="Editar" to={`/usuarios/${usuario._id}`}>
 										<BiEditAlt />
 									</Link>
-									<button className="submit-button font-light bg-red-400 px-4 ml-3 text-xl" title="Apagar">
+									<button 
+										className="submit-button font-light bg-red-400 px-4 ml-3 text-xl" 
+										title="Apagar"
+										onClick={() => handleOnOpen(usuario._id)}
+									>
 										<BiUserMinus />
 									</button>
 								</td>
@@ -39,6 +65,19 @@ const UsuariosTable = ({ usuarios }) => {
 				</tbody>
 			</table>
 		</div>
+		<Modal 
+			isOpen={Boolean(userId)}
+			className="modal"
+			onRequestClose={handleOnClose}
+			ariaHideApp={false}
+		>
+			<h1 className="text-2xl font-light mb-5">Tem certeza que deseja realizar essa operação?</h1>
+			<div className="flex justify-between items-center">
+				<button className="submit-button px-4" onClick={handleOnClose}>Melhor Não</button>
+				<button className="submit-button px-4 bg-green-400" onClick={handleOnRemove}>Sim, Tenho!</button>
+			</div>
+		</Modal>
+		</>
 	)
 }
 

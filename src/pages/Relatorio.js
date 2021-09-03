@@ -5,10 +5,12 @@ import { BiExport, BiFilterAlt } from 'react-icons/bi'
 import Api from '../services/Api'
 import Navbar from '../components/Navbar'
 import HistoricoTable from '../components/HistoricoTable'
+import ToastNotify from '../utils/ToastNotify'
 
 const currentDate = DateTime.fromJSDate(new Date()).toFormat('yyyy-MM-dd')
 
 const Relatorio = () => {
+	const [reload, setReload] = useState(false)
 	const [pontos, setPontos] = useState([])
 	const [nome, setNome] = useState('Somebody')
 	const [date, setDate] = useState({ inicio: currentDate, final: currentDate })
@@ -32,6 +34,8 @@ const Relatorio = () => {
 
 	}
 
+	const handleOnReload = value => setReload(value)
+
 	const handleOnExport = ev => { }
 	const handleOnDateChange = ev => {
 		setDate(d => ({ ...d, [ev.target.name]: ev.target.value }))
@@ -45,11 +49,13 @@ const Relatorio = () => {
 				setPontos(historico)
 				setNome(nome)
 				setTotal(total)
+				setReload(false)
 			} catch (error) {
-				console.log(error.message)
+				ToastNotify(error.message, 'BOTTOM_RIGHT', 'error')
+				setReload(false)
 			}
 		})()
-	}, [userId])
+	}, [userId, reload])
 
 	if (!nome || !pontos) return <p>Loading...</p>
 
@@ -89,7 +95,7 @@ const Relatorio = () => {
 					<BiExport />
 				</button>
 			</div>
-			<HistoricoTable pontos={pontos} />
+			<HistoricoTable pontos={pontos} handleOnReload={handleOnReload} />
 		</div>
 	)
 }

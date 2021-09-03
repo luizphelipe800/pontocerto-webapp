@@ -33,8 +33,8 @@ const EditarUsuarios = () => {
 
             await Api.put(`/usuarios/${userId}`, body)
             setLoading(true)
-            ToastNotify('Usuário Cadastrado!', 'BOTTOM_RIGHT', 'success')
-            setTimeout(() => history.replace('/home'), 5000)
+            ToastNotify('Usuário Atualizado!', 'BOTTOM_RIGHT', 'success')
+            setTimeout(() => history.replace('/usuarios'), 5000)
 
         } catch (error) {
             ToastNotify(error.message, 'BOTTOM_RIGHT', 'error')
