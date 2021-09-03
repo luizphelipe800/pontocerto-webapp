@@ -11,7 +11,8 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Main from './pages/Main'
 import AdicionarUsuario from './pages/AdicionarUsuario'
-import ListarUsuarios from './pages/ListarUsuarios';
+import ListarUsuarios from './pages/ListarUsuarios'
+import Historico from './pages/Historico'
 
 const PublicRoutes = ({ children, ...rest }) => {
     return <Route
@@ -59,6 +60,10 @@ const Routes = () => (
 
             <PrivateRoutes path='/usuarios'>
                 <ListarUsuarios/>
+            </PrivateRoutes>
+
+            <PrivateRoutes path='/historico/:userId'>
+                <Historico/>
             </PrivateRoutes>
         </Switch>
     </BrowserRouter>

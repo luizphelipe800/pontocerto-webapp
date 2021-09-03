@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { BiEditAlt, BiX } from 'react-icons/bi'
+import { BiEditAlt, BiUserMinus } from 'react-icons/bi'
 import Navbar from "../components/Navbar"
 import Api from '../services/Api'
 
@@ -11,8 +11,12 @@ const ListaUsuarios = () => {
 
     useEffect(() => {
         (async () => {
-            const { data } = await Api.get('/usuarios')
-            setUsers(data)
+            try {
+                const { data } = await Api.get('/usuarios')
+                setUsers(data)
+            } catch (error) {
+                console.log(error.message)
+            }
         })()
     }, [])
 
@@ -25,16 +29,18 @@ const ListaUsuarios = () => {
             <div>
                 {
                     users.map(user => (
-                        <div key={user._id} className="flex flex-row border-b-2 border-gray-300 justify-between items-center p-4 mb-5">
-                            <p>{user.nome}</p>
-                            <p>{ cargos[user.funcao - 1] }</p>
+                        <div key={user._id} className="flex flex-row border-b border-gray-500 justify-between items-center py-4 mb-5">
+                            <p className="text-xl">{user.nome}</p>
+                            <p className="text-xl">{ cargos[user.funcao - 1] }</p>
                             <div className="flex flex-row">
-                                <Link className="submit-button font-light px-4 ml-3">histórico de ponto</Link>
+                                <Link className="submit-button bg-indigo-400 font-normal px-4 ml-3" to={`/historico/${user._id}`}>
+                                    histórico de ponto
+                                </Link>
                                 <button className="submit-button font-light px-4 ml-3" title="Editar">
                                     <BiEditAlt/>
                                 </button>
-                                <button className="submit-button font-light bg-red-300 hover:bg-red-400 px-4 ml-3" title="Apagar">
-                                    <BiX/>
+                                <button className="submit-button font-light bg-red-400 px-4 ml-3" title="Apagar">
+                                    <BiUserMinus/>
                                 </button>
                             </div>
                         </div>
