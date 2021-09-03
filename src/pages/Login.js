@@ -32,7 +32,7 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-gray-100 h-screen grid p-4 font-light ">
+        <div className="bg-gray-50 h-screen grid p-4 font-light ">
             <div>
                 <h1 className="text-3xl">PontoCerto</h1>
             </div>

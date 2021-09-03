@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Main = () => {
     return (
-        <div className="h-screen bg-gray-100 p-8 flex flex-col font-light">
+        <div className="h-screen bg-gray-50 p-8 flex flex-col font-light">
             <div className="h-20 flex items-center">
                 <h1 className="text-3xl">PontoCerto</h1>
             </div>
