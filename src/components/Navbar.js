@@ -20,8 +20,8 @@ const Navbar = () => {
                 {
                     user.funcao === 1 &&
                     <>
-                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow" to="/usuario">Adicionar Funcionário</Link>
-                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow" to="/">Adicionar Funcionário</Link>
+                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow text-center" to="/usuarios/add">Adicionar Funcionário</Link>
+                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow text-center" to="/usuarios">Funcionários</Link>
                     </>
                 }
                 <button onClick={handleOnLogout} className="font-extrabold">Sair</button>

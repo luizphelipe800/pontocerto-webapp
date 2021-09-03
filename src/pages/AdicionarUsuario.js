@@ -117,7 +117,7 @@ const AdicionarUsuario = () => {
                         </div>
                     </div>
 
-                    <button  className="submit-button px-5" type="submit">
+                    <button  className="submit-button bg-green-400 px-5" type="submit">
                         <ClipLoader color="#ffffff" loading={loading} size={16} />
                         { !loading && 'Salvar Usuário' }
                     </button>

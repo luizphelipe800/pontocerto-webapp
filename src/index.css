@@ -31,5 +31,5 @@
 }
 
 .submit-button{
-    @apply border border-black h-10 shadow bg-green-400 hover:bg-green-500 flex justify-center items-center
+    @apply border border-black h-10 shadow flex justify-center items-center
 }

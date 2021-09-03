@@ -9,8 +9,9 @@ import {
 
 import Login from './pages/Login'
 import Home from './pages/Home'
-import Main from './pages/Main';
-import AdicionarUsuario from './pages/AdicionarUsuario';
+import Main from './pages/Main'
+import AdicionarUsuario from './pages/AdicionarUsuario'
+import ListarUsuarios from './pages/ListarUsuarios';
 
 const PublicRoutes = ({ children, ...rest }) => {
     return <Route
@@ -52,8 +53,12 @@ const Routes = () => (
                 <Home/>
             </PrivateRoutes>
 
-            <PrivateRoutes path='/usuario'>
+            <PrivateRoutes exact path='/usuarios/add'>
                 <AdicionarUsuario/>
+            </PrivateRoutes>
+
+            <PrivateRoutes path='/usuarios'>
+                <ListarUsuarios/>
             </PrivateRoutes>
         </Switch>
     </BrowserRouter>
