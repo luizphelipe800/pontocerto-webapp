@@ -44,7 +44,7 @@ const HistoricoTable = ({ pontos, handleOnReload }) => {
 
 	return (
 		<>
-		<div className="border border-black shadow bg-white">
+		<div className="border border-black shadow bg-white w-full">
 			<table className="divide-y divide-black w-full">
 				<thead className="">
 					<tr>
@@ -75,7 +75,7 @@ const HistoricoTable = ({ pontos, handleOnReload }) => {
 										title="Folga"
 										onClick={() => handleOnVacation(ponto._id, ponto.feriado)}
 									>
-										{ponto.feriado ? <BiHotel /> : <BiRun/>}
+										{ponto.feriado ? <BiRun /> : <BiHotel/>}
 									</button>
 									<button 
 										className="submit-button font-light px-4 ml-3 text-xl" 

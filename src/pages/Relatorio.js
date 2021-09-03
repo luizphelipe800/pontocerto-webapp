@@ -36,7 +36,25 @@ const Relatorio = () => {
 
 	const handleOnReload = value => setReload(value)
 
-	const handleOnExport = ev => { }
+	const handleOnExport = async ev => {
+		try {
+			const { data } = await Api.post('/relatorios', { dados: pontos }, {
+					responseType: 'arraybuffer'
+				}
+			)
+			const url = window.URL.createObjectURL(new Blob([data]))
+
+			const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', `${nome}-${date.inicio}-${date.final}.xlsx`)
+      document.body.appendChild(link)
+      link.click()
+
+			ToastNotify('Download Sendo Preparado!', 'BOTTOM_RIGHT', 'success')
+		} catch (error) {
+			ToastNotify(error.message, 'BOTTOM_RIGHT', 'error')
+		}
+	}
 	const handleOnDateChange = ev => {
 		setDate(d => ({ ...d, [ev.target.name]: ev.target.value }))
 	}
@@ -62,7 +80,10 @@ const Relatorio = () => {
 	return (
 		<div className="h-screen p-6 bg-gray-50 font-light flex flex-col">
 			<Navbar />
-			<h1 className="my-10 text-2xl">{`${nome} - Histórico de Pontos`}</h1>
+			<div className="my-10 flex justify-between items-center">
+				<h1 className="text-2xl">{`${nome} - Histórico de Pontos`}</h1>
+				<h1>{`Banco de Horas: ${total}`}</h1>
+			</div>
 			<div className="flex justify-between mb-10">
 				<form className="flex" onSubmit={handleOnFilter}>
 					<input
