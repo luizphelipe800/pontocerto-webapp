@@ -12,6 +12,7 @@ import Home from './pages/Home'
 import Main from './pages/Main'
 import AdicionarUsuario from './pages/AdicionarUsuario'
 import ListarUsuarios from './pages/ListarUsuarios'
+import EditarUsuarios from './pages/EditarUsuarios'
 import Relatorio from './pages/Relatorio'
 
 const PublicRoutes = ({ children, ...rest }) => {
@@ -56,6 +57,10 @@ const Routes = () => (
 
             <PrivateRoutes exact path='/usuarios/add'>
                 <AdicionarUsuario/>
+            </PrivateRoutes>
+
+            <PrivateRoutes path='/usuarios/:userId'>
+                <EditarUsuarios/>
             </PrivateRoutes>
 
             <PrivateRoutes path='/usuarios'>
