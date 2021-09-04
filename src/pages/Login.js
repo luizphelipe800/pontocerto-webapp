@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 import { login } from '../services/Auth'
 import ToastNotify from '../utils/ToastNotify'
 import Api from '../services/Api'
@@ -32,9 +32,9 @@ const Login = () => {
     }
 
     return (
-        <div className="bg-gray-50 h-screen grid p-4 font-light ">
+        <div className="bg-gray-50 h-screen w-screen grid p-8 font-light ">
             <div>
-                <h1 className="text-3xl">PontoCerto</h1>
+                <Link className="text-3xl" to="/">PontoCerto</Link>
             </div>
             <div className="grid grid-cols-1 lg:w-1/3 sm:w-1/2 place-self-start justify-self-center p-3">
                 <h1 className="text-center text-4xl mb-5">Faça o Login</h1>

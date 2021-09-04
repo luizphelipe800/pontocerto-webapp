@@ -56,7 +56,7 @@ const EditarUsuarios = () => {
     }, [userId])
 
     return (
-        <div className="h-screen bg-gray-50 p-6 font-light flex flex-col">
+        <div className="custom-container">
             <Navbar/>
             <div className="h-full flex justify-center items-center">
                 <form className="w-1/2 flex flex-col" onSubmit={handleOnSubmit}>

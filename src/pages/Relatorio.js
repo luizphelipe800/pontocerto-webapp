@@ -78,7 +78,7 @@ const Relatorio = () => {
 	if (!nome || !pontos) return <p>Loading...</p>
 
 	return (
-		<div className="h-screen p-6 bg-gray-50 font-light flex flex-col">
+		<div className="custom-container">
 			<Navbar />
 			<div className="my-10 flex justify-between items-center">
 				<h1 className="text-2xl">{`${nome} - Histórico de Pontos`}</h1>

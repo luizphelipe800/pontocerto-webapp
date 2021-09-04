@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 
 const Main = () => {
     return (
-        <div className="h-screen bg-gray-50 p-8 flex flex-col font-light">
-            <div className="h-20 flex items-center">
-                <h1 className="text-3xl">PontoCerto</h1>
+        <div className="h-screen w-screen bg-gray-50 p-8 flex flex-col font-light">
+            <div className=" flex items-center">
+                <Link className="text-3xl" to="/">PontoCerto</Link>
             </div>
             <div className="flex flex-row h-full">
                 <div className="w-1/2 flex flex-col justify-center">

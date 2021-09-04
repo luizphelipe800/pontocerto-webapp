@@ -1,9 +1,8 @@
 import { isAuthenticated } from './services/Auth';
-
+import { AnimatedSwitch } from 'react-router-transition'
 import {
     BrowserRouter,
     Route,
-    Switch,
     Redirect
 } from 'react-router-dom'
 
@@ -43,7 +42,12 @@ const PrivateRoutes = ({ children, ...rest }) => {
 
 const Routes = () => (
     <BrowserRouter>
-        <Switch>
+        <AnimatedSwitch
+            atEnter={{ opacity: 0 }}
+            atLeave={{ opacity: 0 }}
+            atActive={{ opacity: 1 }}
+            className="switch-wrapper"
+        >
             <PublicRoutes exact path='/'>
                 <Main/>
             </PublicRoutes>
@@ -70,7 +74,7 @@ const Routes = () => (
             <PrivateRoutes path='/relatorio/:userId'>
                 <Relatorio/>
             </PrivateRoutes>
-        </Switch>
+        </AnimatedSwitch>
     </BrowserRouter>
 )
 

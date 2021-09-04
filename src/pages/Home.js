@@ -5,7 +5,7 @@ import Clock from '../components/Clock'
 const Home = () => {
 
     return (
-        <div className="bg-gray-50 h-screen p-6 font-light">
+        <div className="custom-container">
             <Navbar/>
             <Header/>
             <Clock/>

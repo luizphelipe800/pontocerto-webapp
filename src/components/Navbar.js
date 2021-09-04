@@ -16,7 +16,7 @@ const Navbar = () => {
             <div>
                 <Link className="text-3xl" to="/">PontoCerto</Link>
             </div>
-            <div className="grid gap-3 grid-cols-3">
+            <div className="flex justify-between w-1/3">
                 {
                     user.funcao === 1 &&
                     <>

@@ -26,7 +26,7 @@ const ListaUsuarios = () => {
     if(!users) return <p>Loading...</p>
 
     return (
-        <div className="h-screen p-6 bg-gray-50 font-light flex flex-col">
+        <div className="custom-container">
             <Navbar/>
             <h1 className="text-2xl my-10">Funcionários</h1>
             <UsuariosTable usuarios={users} handleOnReload={handleOnReload}/>
