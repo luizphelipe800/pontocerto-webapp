@@ -22,7 +22,7 @@ const Clock = () => {
         (async () => {
             const { data } = await Api.get('/pontos')
             setPonto(data)
-            setTimeout(() => setPontoBatido(false), 3000)
+            setPontoBatido(false)
         })()
     }, [pontoBatido])
 

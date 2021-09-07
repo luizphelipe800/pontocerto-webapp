@@ -18,7 +18,8 @@ const Login = () => {
             const { data } = await Api.post('/sessions', credentials)
             await login(data)
             setLoading(true)
-            setTimeout(() => history.replace('/home'), 3000)
+            ToastNotify('Login foi um sucesso!', 'BOTTOM_LEFT', 'success')
+            history.replace('/home')
         }catch(error){
             ToastNotify(error.response.data, 'TOP_CENTER', 'error')
             setLoading(false)

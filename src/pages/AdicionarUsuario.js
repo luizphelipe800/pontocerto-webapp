@@ -36,7 +36,7 @@ const AdicionarUsuario = () => {
             await Api.post('/usuarios', body)
             setLoading(true)
             ToastNotify('Usuário Cadastrado!', 'BOTTOM_RIGHT', 'success')
-            setTimeout(() => history.replace('/home'), 5000)
+            history.replace('/home')
 
         } catch (error) {
             ToastNotify(error.message, 'BOTTOM_RIGHT', 'error')
