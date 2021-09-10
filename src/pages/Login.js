@@ -16,10 +16,10 @@ const Login = () => {
         ev.preventDefault()
         try{
             const { data } = await Api.post('/sessions', credentials)
-            await login(data)
             setLoading(true)
             ToastNotify('Login foi um sucesso!', 'BOTTOM_LEFT', 'success')
-            history.replace('/home')
+            await login(data)
+            setTimeout(() => history.replace('/home'), 2000)
         }catch(error){
             ToastNotify(error.response.data, 'TOP_CENTER', 'error')
             setLoading(false)
