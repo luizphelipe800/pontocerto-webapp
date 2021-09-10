@@ -10,9 +10,14 @@ const Clock = () => {
     const handleOnClick = async () => {
         try{
             const time = new Date().toLocaleTimeString().split(':')
-            await Api.post('/pontos', { horario: `${time[0]}:${time[1]}` })
+
+            if(!pontoBatido){
+                await Api.post('/pontos', { horario: `${time[0]}:${time[1]}` })
+                ToastNotify('Ponto Batido!', 'BOTTOM_RIGHT', 'success')
+            }
+
             setPontoBatido(true)
-            ToastNotify('Ponto Batido!', 'BOTTOM_RIGHT', 'success')
+            setTimeout(() => setPontoBatido(false), 2000)
         }catch(error){
             ToastNotify(error.response.data, 'BOTTOM_RIGHT', 'error')
         }
@@ -22,7 +27,6 @@ const Clock = () => {
         (async () => {
             const { data } = await Api.get('/pontos')
             setPonto(data)
-            setPontoBatido(false)
         })()
     }, [pontoBatido])
 
