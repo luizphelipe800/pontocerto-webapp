@@ -16,15 +16,15 @@ const Navbar = () => {
             <div>
                 <Link className="text-3xl" to="/">PontoCerto</Link>
             </div>
-            <div className="flex justify-between w-1/3">
+            <div className="flex flex-row justify-between">
                 {
                     user.funcao === 1 &&
                     <>
                     <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow text-center" to="/usuarios/add">Adicionar Funcionário</Link>
-                    <Link className="border font-normal border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow text-center" to="/usuarios">Funcionários</Link>
+                    <Link className="border font-normal ml-5 border-black py-1 px-3 bg-yellow-300 hover:bg-yellow-400 shadow text-center" to="/usuarios">Funcionários</Link>
                     </>
                 }
-                <button onClick={handleOnLogout} className="font-extrabold">Sair</button>
+                <button onClick={handleOnLogout} className="font-extrabold ml-5">Sair</button>
             </div>
         </nav>
     )
