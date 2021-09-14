@@ -61,3 +61,7 @@
 .custom-container{
     @apply h-screen bg-gray-50 p-8 font-light flex flex-col w-screen
 }
+
+tr:nth-child(even){
+    @apply bg-gray-200
+}
