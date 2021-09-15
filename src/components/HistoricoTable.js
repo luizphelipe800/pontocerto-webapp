@@ -44,8 +44,8 @@ const HistoricoTable = ({ pontos, handleOnReload }) => {
 
 	return (
 		<>
-		<div className="border border-black shadow bg-white w-full">
-			<table className="divide-y divide-black w-full">
+		<div className="border border-black shadow bg-white flex flex-col">
+			<table className="divide-y divide-black">
 				<thead className="">
 					<tr>
 						<th className="px-4 py-2 text-left uppercase font-normal text-xs tracking-wider">Data</th>
@@ -78,7 +78,7 @@ const HistoricoTable = ({ pontos, handleOnReload }) => {
 										{ponto.feriado ? <BiRun /> : <BiHotel/>}
 									</button>
 									<button 
-										className="submit-button font-light px-4 ml-3 text-xl" 
+										className="submit-button font-light px-4 ml-3 text-xl bg-gray-50" 
 										title="Editar"
 										onClick={() => handleOnOpen(ponto._id, ponto.horarios)}
 									>

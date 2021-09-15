@@ -45,10 +45,10 @@ const UsuariosTable = ({ usuarios, handleOnReload }) => {
 								<td className="px-4 py-2 whitespace-nowrap">{cargos[usuario.funcao - 1]}</td>
 								<td className="px-4 py-2 whitespace-nowrap">{`${usuario.expediente.entrada} até ${usuario.expediente.saida}`}</td>
 								<td className="px-4 py-2 whitespace-nowrap flex justify-end">
-									<Link className="submit-button font-normal text-xl px-4 ml-3" to={`/relatorio/${usuario._id}`} title="Histórico de Ponto">
+									<Link className="submit-button font-normal text-xl px-4 ml-3 bg-gray-50" to={`/relatorio/${usuario._id}`} title="Histórico de Ponto">
 										<BiSpreadsheet/>
 									</Link>
-									<Link className="submit-button font-light px-4 ml-3 text-xl" title="Editar" to={`/usuarios/${usuario._id}`}>
+									<Link className="submit-button font-light px-4 ml-3 text-xl bg-gray-50" title="Editar" to={`/usuarios/${usuario._id}`}>
 										<BiEditAlt />
 									</Link>
 									<button 

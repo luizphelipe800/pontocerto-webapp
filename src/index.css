@@ -59,7 +59,7 @@
 }
 
 .custom-container{
-    @apply h-screen bg-gray-50 p-8 font-light flex flex-col w-screen
+    @apply h-screen bg-gray-50 p-8 font-light flex flex-col w-screen overflow-x-hidden
 }
 
 tr:nth-child(even){
